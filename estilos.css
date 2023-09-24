@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.max-height-container {
+    max-height: 400px;
+ 
+  }
