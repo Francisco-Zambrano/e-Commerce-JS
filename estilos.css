@@ -1,10 +1,89 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.max-height-container {
-    max-height: 400px;
- 
-  }
+.logo {
+    width: 40px;
+}
+
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+}
+
+button {
+    background-color: rgb(0, 133, 133);
+    border: 2px solid rgb(0, 133, 133);
+    padding: .25rem;
+    border-radius: .2rem;;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    border: 2px solid rgb(0, 133, 133);
+    color: rgb(0, 133, 133);
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;  
+}
+
+.card{
+    width: 80%;
+    height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+}
+
+img{
+    width: 100%;
+}
+
+@media (min-width:100px){
+    .container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (min-width:520px){
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width:728px){
+    .container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width:1024px){
+    .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

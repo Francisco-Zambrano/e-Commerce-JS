@@ -11,7 +11,7 @@
         "titulo": "ASUS ROG Strix G16",
         "precio": 1270,
         "imagen": "./productosImg/2.webp",
-        "escripcion": "Nebula Display 16:10 QHD 240Hz, GeForce RTX 4070, Intel Core i9-13980HX, 32GB DDR5, 1TB PCIe SSD, Wi-Fi 6E"
+        "descripcion": "Nebula Display 16:10 QHD 240Hz, GeForce RTX 4070, Intel Core i9-13980HX, 32GB DDR5, 1TB PCIe SSD, Wi-Fi 6E"
     },
     {
         "id": 3,
