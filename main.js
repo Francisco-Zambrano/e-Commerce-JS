@@ -1,5 +1,5 @@
 const contenedorProductos = document.querySelector("#contenedor-productos");
-
+const carrito = [];
 
 
 
@@ -22,11 +22,48 @@ fetch("./productos.json")
                 <h3 id="titulo">${producto.titulo}</h3>
                 <p id="descripcion">${producto.descripcion}</p>
                 <h3 class="producto-precio">$${producto.precio}</h3>
-                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+                <button class="btnAgregar" id="${producto.id}">Agregar</button>
             </div>   
        `
           
     contenedorProductos.append(div);
     });
+
+
+
+    document.addEventListener("click", (e) => {
+        const btnAgregar = document.querySelectorAll(".btnAgregar");
+        btnAgregar.forEach((btn) => {
+            if (e.target == btn) {
+                const id = parseInt(e.target.id);
+                const producto = productos.find((producto) => producto.id === id);
+                agregarCarrito(producto);
+            }
+        })  
+    })
+
+    function agregarCarrito(producto) {
+        const productoSearch = carrito.find((productoCarrito) => productoCarrito.id === producto.id);
+        if(productoSearch) {
+            productoSearch.cantidad++
+        }else{
+            carrito.push({
+                ...producto,
+                cantidad: 1
+            });
+            
+        }  
+        console.log(carrito); 
+    }
+
+
+
+
+
+
+
+
 }
+
+
    
