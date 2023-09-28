@@ -1,32 +1,33 @@
 const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
 
+const containerCarrito = document.querySelector("#container-carrito");
+const productoCarrito = document.getElementById("#producto-carrito");
 
-// const carritoSeleccion = document.querySelector(".carrito");
-const carritoProductos = document.querySelector("carrito-productos");
 
 
 function traerPorductos () {
     productosEnCarrito.forEach(producto => {
         const div = document.createElement("div");
-        div.classList.add("carrito-productos");
+        div.classList.add(productoCarrito);
         div.innerHTML = 
         
-            `
-            
-                <div class="producto-carrito">
-                    <div class="imagen-producto-carrito"><img src="${producto.imagen}"></div>
-                    <h5 class="titulo-carrito">${producto.titulo}</h5>
-                    <h5 class="precio-carrito">${producto.precio}</h5>
-                    <h5 class="cantidad-carrito">${producto.cantidad}</h5>
-                    <h5 class="total-producto">$${producto.cantidad * producto.cantidad}</h5>
-                    <button id="${producto.id}">X</button>
-                </div> 
-            
+        `
+            <div class="producto-carrito" id="producto-carrito">
+                <img class="imagen-producto-carrito" src=${producto.imagen}>
+                <h5 class="titulo-carrito">${producto.titulo}</h5>
+                <h5 class="precio-carrito">$${producto.precio}</h5>
+                <h5 class="cantidad-carrito">${producto.cantidad}</h5>
+                <h5 class="total-producto">${producto.cantidad * producto.precio}</h5>
+                <button class="carrito-producto-eliminar"><i class="bi bi-trash"></i></button>
+            </div>
         `
 
-        carritoProductos.append(div);
+        containerCarrito.append(div);
         
     });
-    console.log(traerPorductos);
+
+    
 }
+
+traerPorductos ()
 
