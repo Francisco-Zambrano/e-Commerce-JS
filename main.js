@@ -1,22 +1,23 @@
-const contenedorProductos = document.querySelector("#contenedor-productos");
 const carrito = [];
+const contenedorProductos = document.querySelector("#contenedor-productos");
+
 
 
 
 fetch("./productos.json")
     .then(response => response.json())
     .then(data => {
-
         subirProductos(data);
-       
     })
+
 
     function subirProductos(productos) {
     productos.forEach(producto => {
         const div = document.createElement("div");
         div.classList.add("producto");
-        div.innerHTML = ` 
-            
+        div.innerHTML = 
+        
+        `     
             <div class="card" id="producto">
                 <img id="imagen" src="${producto.imagen}">
                 <h3 id="titulo">${producto.titulo}</h3>
@@ -42,10 +43,11 @@ fetch("./productos.json")
         })  
     })
 
+
     function agregarCarrito(producto) {
         const productoSearch = carrito.find((productoCarrito) => productoCarrito.id === producto.id);
         if(productoSearch) {
-            productoSearch.cantidad++
+            productoSearch.cantidad++;
         }else{
             carrito.push({
                 ...producto,
@@ -53,17 +55,10 @@ fetch("./productos.json")
             });
             
         }  
-        console.log(carrito); 
+    
+    localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));    
     }
-
-
-
-
-
-
-
-
+    
 }
 
 
-   
