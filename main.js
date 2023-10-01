@@ -2,8 +2,6 @@ const carrito = [];
 const contenedorProductos = document.querySelector("#contenedor-productos");
 
 
-
-
 fetch("./productos.json")
     .then(response => response.json())
     .then(data => {
@@ -45,6 +43,26 @@ fetch("./productos.json")
 
 
     function agregarCarrito(producto) {
+
+        Toastify({
+            text: "Producto agregado al carrito",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", 
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "rgb(0, 133, 133)",
+            },
+            offset: {
+                x: "2em",
+                y: "3em"
+              },
+            onClick: function(){} 
+          }).showToast();
+
+
         const productoSearch = carrito.find((productoCarrito) => productoCarrito.id === producto.id);
         if(productoSearch) {
             productoSearch.cantidad++;
@@ -57,8 +75,7 @@ fetch("./productos.json")
         }  
     
     localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));    
-    }
-    
+    } 
 }
 
 
